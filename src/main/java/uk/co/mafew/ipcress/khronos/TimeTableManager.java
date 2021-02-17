@@ -38,7 +38,7 @@ public class TimeTableManager {
 	public static void main(String args[]) {
 
 		TimeTableManager ttm = new TimeTableManager();
-		ttm.TIMETABLE_URL="C:\\Users\\jbailey1\\Documents\\uranus\\timetable\\TimeTable.xml";
+		ttm.TIMETABLE_URL="C:\\Users\\jonat\\Documents\\ipcress\\timetable\\TimeTable.xml";
 		ttm.startTimeTable();
 	}
 

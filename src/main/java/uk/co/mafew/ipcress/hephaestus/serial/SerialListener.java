@@ -27,7 +27,8 @@ public class SerialListener implements Runnable, SerialPortEventListener
 
 	public static void main(String[] args)
 	{
-		Enumeration ports = CommPortIdentifier.getPortIdentifiers();
+		@SuppressWarnings("unchecked")
+		Enumeration<CommPortIdentifier> ports = CommPortIdentifier.getPortIdentifiers();
 		while (ports.hasMoreElements())
 		{
 			CommPortIdentifier port = (CommPortIdentifier) ports.nextElement();
