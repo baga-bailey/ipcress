@@ -38,6 +38,7 @@ public class S3 {
 		String accesskey = "";
 		String secretkey = "";
 		String bucket = "";
+		//This is a test
 
 		awsClient.listObjects_IAM(region, bucket);
 		//awsClient.deleteObjects(accesskey, secretkey, region, bucket, "JBTest2/hello.txt");
