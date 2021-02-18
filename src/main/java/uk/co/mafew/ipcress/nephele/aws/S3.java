@@ -34,12 +34,10 @@ public class S3 {
 	public static void main(String[] args) {
 
 		S3 awsClient = new S3();
-		//String region = "ap-southeast-1";
-		String region = "us-east-1";
-		String accesskey = "AKIAQTOBINDW2FURFAMK";
-		String secretkey = "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";
-		//String bucket = "infor-license-management-office-cloud-reports-bucket";
-		String bucket = "infor-prd-mingle-us-east-1";
+		String region = "";
+		String accesskey = "";
+		String secretkey = "";
+		String bucket = "";
 
 		awsClient.listObjects_IAM(region, bucket);
 		//awsClient.deleteObjects(accesskey, secretkey, region, bucket, "JBTest2/hello.txt");
