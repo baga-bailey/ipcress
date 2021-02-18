@@ -23,16 +23,6 @@ public class JsonClientHelper {
 	public static void main(String args[])
 	{
 		JsonClientHelper test = new JsonClientHelper();
-		System.out.println(test.downloadJsonToFile(
-				"http://jira.infor.com/rest/api/2/search?jql=project+%3D+LMTS+AND+issuetype+in+%28%22Change+Request%22%2C+Project%29+AND+status+in+%28Open%2C+%22In+Progress%22%2C+Reopened%29+ORDER+BY+updated+DESC%2C+cf%5B10190%5D+ASC%2C+due+DESC",
-				"C:\\Users\\jbailey1\\Documents\\LMTS workload\\Jira Reports\\Automation\\json\\CRandProj.js"));
-		System.out.println(test.downloadJsonToFile(
-				"http://jira.infor.com/rest/api/2/search?jql=project+%3D+LMTS+AND+status+%21%3D+Resolved+AND+status+%21%3D+Closed+AND+type+in+%28%22Technical+Question%22%29+ORDER+BY+created+DESC%2c+updated+ASC%2c+key+DESC",
-				"C:\\Users\\jbailey1\\Documents\\LMTS workload\\Jira Reports\\Automation\\json\\Parent.js"));
-		System.out.println(test.downloadJsonToFile(
-				"http://jira.infor.com/rest/api/2/search?jql=project+%3D+LMTS+AND+status+%21%3DResolved+AND+status+%21%3D+Closed+and+parent%3D+%22LMTS-8780%22+ORDER+BY+key+DESC",
-				"C:\\Users\\jbailey1\\Documents\\LMTS workload\\Jira Reports\\Automation\\json\\Queued.js"));
-
 	}
 
 	public String downloadJsonToFile(String urlString, String file)

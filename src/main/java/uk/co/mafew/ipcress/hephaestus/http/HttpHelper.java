@@ -41,26 +41,6 @@ public class HttpHelper
 	public static void main(String[] args)
 	{
 		HttpHelper helper = new HttpHelper();
-		// System.out.println(Convert.elementToString((Element)
-		// helper.httpXhtmlRequestAuthorised("http://jira.infor.com/sr/jira.issueviews:searchrequest-xml/temp/SearchRequest.xml",
-		// "jqlQuery=project+%3D+LMTS+AND+status+in+%28Open%2C+%22In+Progress%22%2C+Reopened%29+AND+%22Audit+ID%22+~+%22110918+%22&amp",
-		// "GET", "Basic aWRhdGE6dWtzb3Z3aWRhdGE=")));
-
-		// System.out.println(helper.httpRequestSecure("https://owa-emea1.infor.com/ews/exchange.asmx",
-		// "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:t=\"http://schemas.microsoft.com/exchange/services/2006/types\"><soap:Header> <t:RequestServerVersion Version=\"Exchange2010\"/></soap:Header><soap:Body><GetMailTips xmlns=\"http://schemas.microsoft.com/exchange/services/2006/messages\"><SendingAs><t:EmailAddress>jon.bailey@infor.com</t:EmailAddress><t:RoutingType>SMTP</t:RoutingType></SendingAs><Recipients><t:Mailbox><t:EmailAddress>jon.bailey@infor.com</t:EmailAddress><t:RoutingType>SMTP</t:RoutingType></t:Mailbox></Recipients> <MailTipsRequested>OutOfOfficeMessage</MailTipsRequested></GetMailTips></soap:Body></soap:Envelope>",
-		// "POST"));
-		// helper.httpRequestSecureAuthorised("https://api.pushbullet.com/v2/pushes",
-		// "{\"type\": \"note\", \"title\": \"Hello Matt\", \"body\": \"Note Body\"}",
-		// "POST",
-		// "Bearer dTDEZ5rBG3fgwSPJDOTemKX4VplHSlrV"));
-
-		// System.out.println(helper.testMethod());
-		System.out
-				.println(helper
-						.httpToFileAuthorised(
-								"https://jira.infor.com/sr/jira.issueviews:searchrequest-excel-current-fields/42340/SearchRequest-42340.xls",
-								"tempMax=1000",
-								"GET", "C:/Users/jbailey1/Downloads/test123.xls", "Basic amJhaWxleTE6QXVnQGluZm9y"));
 	}
 
 	// #endregion

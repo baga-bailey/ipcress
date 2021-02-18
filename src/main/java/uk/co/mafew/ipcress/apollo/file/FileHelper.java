@@ -53,10 +53,8 @@ public class FileHelper
 		/* System.out.println(Convert.docToString((Document)
 		 fh.getInnerZipProperties(
 		 "\\\\ukfavwlmts03\\c$\\Decode, Analysis and Tech tools\\DecodeAutomation\\files\\decryptSaosFile\\processedFiles\\00179599_955063792_AUDITW6_plain.00179599-UKN-MR.zip"
-		 )));*/
-		 
+		 )));*/		 
 		
-		//System.out.println(fh.zipFile("C:\\Users\\jbailey1\\Desktop\\New, folder\\6077f995-66cd-4eeb-88d2-9fb4afd67dd4\\6077f995-66cd-4eeb-88d2-9fb4afd67dd4\\6077f995-66cd-4eeb-88d2-9fb4afd67dd4\\test%201.zip", "C:\\Users\\jbailey1\\Documents\\New folder\\Infor_usage_data.csv"));
 		//fh.parseTextFile("C:\\Users\\jbailey1\\Documents\\uranus\\files\\system21\\workingDirectory\\51fe209b-58ed-4fe4-808f-51d3bce0d463\\AC1_SYS1_SL71_02.09.16_VERSION.txt",
 		//		".*", "UTF-16le");
 		

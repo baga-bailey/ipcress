@@ -48,30 +48,7 @@ public class JsonClientHelper
 	{
 		JsonClientHelper test = new JsonClientHelper();
 		System.out.println(Convert.elementToString((Element) test.jsonToXml("{\"data\":{\"acl\":\"public-read\",\"awsaccesskeyid\":\"AKIAJJIUQPUDGPM4GD3W\",\"content-type\":\"image/png\",\"key\":\"tuWmDiblKc5G8eJUTst4ziB3gfrGel8p/image.png\",\"policy\":\"eyKjb25kaXRpb25zIjTE6MzcuMjM0MTMwWiJ9\",\"signature\":\"UX5s1uIy1ov6+xlj58JY7rGFKcs=\"},\"file_name\":\"image.png\",\"file_type\":\"image/png\",\"file_url\":\"https://dl2.pushbulletusercontent.com/tuWmDiblKc5G8eJUTst4ziB3gfrGel8p/image.png\",\"upload_url\":\"https://upload.pushbullet.com/upload-legacy/iOoq9WeWFjTyroKIbz4puevLCIPyYeSQ\"}")));
-		// System.out.println(test.downloadJsonToFile(
-		// "http://jira.infor.com/rest/api/2/search?jql=project+%3D+LMTS+AND+issuetype+in+%28%22Change+Request%22%2C+Project%29+AND+status+in+%28Open%2C+%22In+Progress%22%2C+Reopened%29+ORDER+BY+updated+DESC%2C+cf%5B10190%5D+ASC%2C+due+DESC",
-		// "C:\\Users\\jbailey1\\Documents\\LMTS workload\\Jira Reports\\Automation\\json\\CRandProj.js"));
-		// System.out.println(test.downloadJsonToFile(
-		// "http://jira.infor.com/rest/api/2/search?jql=project+%3D+LMTS+AND+status+%21%3D+Resolved+AND+status+%21%3D+Closed+AND+type+in+%28%22Technical+Question%22%29+ORDER+BY+created+DESC%2c+updated+ASC%2c+key+DESC",
-		// "C:\\Users\\jbailey1\\Documents\\LMTS workload\\Jira Reports\\Automation\\json\\Parent.js"));
-		// System.out
-		// .println(test
-		// .downloadJsonToFileAuthorised(
-		// "http://jira.infor.com/rest/api/2/search?jql=project+%3D+LMTS+AND+status+%21%3DResolved+AND+status+%21%3D+Closed+and+parent%3D+%22LMTS-8780%22+ORDER+BY+key+DESC",
-		// "C:\\Users\\jbailey1\\Documents\\LMTS workload\\Jira Reports\\Automation\\json\\Queued.js",
-		// "Authorization", "Basic SkJhaWxleTE6RmViQGluZm9y"));
-		// System.out.println(test.jsonRequestSecureAuthorised("https://api.pushbullet.com/v2/pushes",
-		// "{\"type\": \"note\", \"title\": \"Hello Matt\", \"body\": \"Note Body\"}",
-		// "POST",
-		// "Bearer dTDEZ5rBG3fgwSPJDOTemKX4VplHSlrV"));
-		// System.out.println(test.jsonRequestAuthorised("http://jira.infor.com/rest/api/2/user",
-		// "jql=username+%3D+jangrabeit", "GET",
-		// "Basic aWRhdGE6dWtzb3Z3aWRhdGE="));
-
-		// System.out.println(test.jsonRequestAuthorised("http://jira.infor.com/rest/api/2/issue",
-		// "{\"fields\":{\"project\":{\"id\":\"10704\"},\"summary\":\"iData processing error - 162041\",\"issuetype\":{\"id\":\"20\"},\"assignee\":{\"name\":\"jbailey1\"},\"reporter\":{\"name\":\"jbailey1\"}}}",
-		// "POST",
-		// "Basic SkJhaWxleTE6RmViQGluZm9y"));;
+		
 
 	}
 

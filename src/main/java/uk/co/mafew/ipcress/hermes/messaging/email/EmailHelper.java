@@ -24,8 +24,6 @@ public class EmailHelper
 	public static void main(String[] args)
 	{
 		EmailHelper eh = new EmailHelper();
-		System.out.println(eh.sendSimpleHtmlMail("jon.bailey@infor.com", "jon.bailey@infor.com", "test subject",
-				"<i>test body</i>", "mail.infor.com"));
 	}
 
 	public boolean sendSimpleHtmlMail(String to, String from, String subject, String body, String host)
