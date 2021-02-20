@@ -46,10 +46,6 @@ public class JsonClientHelper
 	// #region Main method for testing
 	public static void main(String args[])
 	{
-		JsonClientHelper test = new JsonClientHelper();
-		System.out.println(Convert.elementToString((Element) test.jsonToXml("{\"data\":{\"acl\":\"public-read\",\"awsaccesskeyid\":\"AKIAJJIUQPUDGPM4GD3W\",\"content-type\":\"image/png\",\"key\":\"tuWmDiblKc5G8eJUTst4ziB3gfrGel8p/image.png\",\"policy\":\"eyKjb25kaXRpb25zIjTE6MzcuMjM0MTMwWiJ9\",\"signature\":\"UX5s1uIy1ov6+xlj58JY7rGFKcs=\"},\"file_name\":\"image.png\",\"file_type\":\"image/png\",\"file_url\":\"https://dl2.pushbulletusercontent.com/tuWmDiblKc5G8eJUTst4ziB3gfrGel8p/image.png\",\"upload_url\":\"https://upload.pushbullet.com/upload-legacy/iOoq9WeWFjTyroKIbz4puevLCIPyYeSQ\"}")));
-		
-
 	}
 
 	// #endregion
