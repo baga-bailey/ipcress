@@ -1,5 +1,7 @@
 package uk.co.mafew.ipcress.hephaestus;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.StringReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,19 +24,18 @@ import org.xml.sax.InputSource;
 
 import uk.co.mafew.ipcress.apollo.logging.*;
 
-public class DatabaseHelper
-{
+public class DatabaseHelper {
 	// #region Testing
 	static String DATASOURCE_CONTEXT = "java:jboss/datasources/mySQL/idata";
 	static String DB_CONN_STRING = "jdbc:mysql://localhost/labos";
 	static String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
 	static String USER_NAME = "root";
 	static String PASSWORD = "admin";
-	
-	public static void main(String[] args)
-	{
-		DatabaseHelper dbHelper = new DatabaseHelper(DB_CONN_STRING,DRIVER_CLASS_NAME,USER_NAME,PASSWORD);
-		dbHelper.executeQuery("SELECT [audit_id] FROM [es].[es].[g_lmo_audit_customer_answer] question_id = 3 and audit_id = '00122587' ;");
+
+	public static void main(String[] args) {
+		DatabaseHelper dbHelper = new DatabaseHelper(DB_CONN_STRING, DRIVER_CLASS_NAME, USER_NAME, PASSWORD);
+		dbHelper.executeQuery(
+				"SELECT [audit_id] FROM [es].[es].[g_lmo_audit_customer_answer] question_id = 3 and audit_id = '00122587' ;");
 
 	}
 	// #endregion
@@ -44,73 +45,60 @@ public class DatabaseHelper
 
 	// #region gettersAndSetters
 
-	public String getDATASOURCE_CONTEXT()
-	{
+	public String getDATASOURCE_CONTEXT() {
 		return DATASOURCE_CONTEXT;
 	}
 
-	public void setDATASOURCE_CONTEXT(String dATASOURCE_CONTEXT)
-	{
+	public void setDATASOURCE_CONTEXT(String dATASOURCE_CONTEXT) {
 		DATASOURCE_CONTEXT = dATASOURCE_CONTEXT;
 	}
 
-	public String getDB_CONN_STRING()
-	{
+	public String getDB_CONN_STRING() {
 		return DB_CONN_STRING;
 	}
 
-	public void setDB_CONN_STRING(String dB_CONN_STRING)
-	{
+	public void setDB_CONN_STRING(String dB_CONN_STRING) {
 		DB_CONN_STRING = dB_CONN_STRING;
 	}
 
-	public String getDRIVER_CLASS_NAME()
-	{
+	public String getDRIVER_CLASS_NAME() {
 		return DRIVER_CLASS_NAME;
 	}
 
-	public void setDRIVER_CLASS_NAME(String dRIVER_CLASS_NAME)
-	{
+	public void setDRIVER_CLASS_NAME(String dRIVER_CLASS_NAME) {
 		DRIVER_CLASS_NAME = dRIVER_CLASS_NAME;
 	}
 
-	public String getUSER_NAME()
-	{
+	public String getUSER_NAME() {
 		return USER_NAME;
 	}
 
-	public void setUSER_NAME(String uSER_NAME)
-	{
+	public void setUSER_NAME(String uSER_NAME) {
 		USER_NAME = uSER_NAME;
 	}
 
-	public String getPASSWORD()
-	{
+	public String getPASSWORD() {
 		return PASSWORD;
 	}
 
-	public void setPASSWORD(String pASSWORD)
-	{
+	public void setPASSWORD(String pASSWORD) {
 		PASSWORD = pASSWORD;
 	}
 
 	// #endregion
 
 	// #region constructors
-	public DatabaseHelper()
-	{
+	public DatabaseHelper() {
 		con = getSimpleConnection();
 	}
 
-	public DatabaseHelper(String jndiName)
-	{
+	public DatabaseHelper(String jndiName) {
 		logger = new Logger(this.getClass().getName());
 		setDATASOURCE_CONTEXT(jndiName);
 		con = getJNDIConnection();
 	}
 
-	public DatabaseHelper(String connectionString, String driverClass, String username, String password)
-	{
+	public DatabaseHelper(String connectionString, String driverClass, String username, String password) {
 		logger = new Logger(this.getClass().getName());
 		setDB_CONN_STRING(connectionString);
 		setDRIVER_CLASS_NAME(driverClass);
@@ -122,51 +110,36 @@ public class DatabaseHelper
 	// #endregion
 
 	// #region Connections
-	private Connection getJNDIConnection()
-	{
+	private Connection getJNDIConnection() {
 
 		Connection result = null;
-		try
-		{
+		try {
 			Context initialContext = new InitialContext();
 
 			DataSource datasource = (DataSource) initialContext.lookup(DATASOURCE_CONTEXT);
-			if (datasource != null)
-			{
+			if (datasource != null) {
 				result = datasource.getConnection();
-			}
-			else
-			{
+			} else {
 				logger.log.error("ERROR - unable to look up DataSource");
 			}
-		}
-		catch (NamingException e)
-		{
+		} catch (NamingException e) {
 			logger.log.error("ERROR: " + e);
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			logger.log.error("ERROR: " + e);
 		}
 		return result;
 	}
 
-	private Connection getSimpleConnection()
-	{
+	private Connection getSimpleConnection() {
 
 		Connection result = null;
-		try
-		{
+		try {
 			Class.forName(DRIVER_CLASS_NAME).newInstance();
 			result = DriverManager.getConnection(DB_CONN_STRING, USER_NAME, PASSWORD);
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			logger.log.error("ERROR: Error connecting with connection string; '" + DB_CONN_STRING + "'");
 			logger.log.error(e.getMessage());
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			logger.log.error(e.getMessage());
 		}
 		return result;
@@ -176,102 +149,74 @@ public class DatabaseHelper
 
 	// #region public methods
 
-	public String executeUpdate(String sql)
-	{
+	public String executeUpdate(String sql) {
 		String retString = "ERROR";
 		Statement stmt = null;
-		try
-		{
+		try {
 			int retValue;
 			stmt = con.createStatement();
 			retValue = stmt.executeUpdate(sql);
-			if (retValue == 0)
-			{
+			if (retValue == 0) {
 				retString = "SUCCESS";
-			}
-			else
-			{
+			} else {
 				retString = "SUCCESS: " + retValue + " rows affected";
 			}
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			retString = "ERROR: " + e.getMessage();
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			retString = "ERROR: " + e.getMessage();
-		}
-		finally
-		{
-			try
-			{
+		} finally {
+			try {
 				con.close();
-			}
-			catch (SQLException e)
-			{
+			} catch (SQLException e) {
 			}
 		}
 
 		return retString;
 	}
-	
-	public String executePreparedStatementUpdate(String sql, Object[] objects)
-	{
+
+	public String executePreparedStatementUpdate(String sql, Object[] objects) {
 		String retString = "ERROR";
 		int retValue = 0;
-		try
-		{
+		try {
 			PreparedStatement preparedStmt = con.prepareStatement(sql);
-			for(int i = 0; i<objects.length;i++)
-			{
+			for (int i = 0; i < objects.length; i++) {
 				if (objects[i] == null) {
-					preparedStmt.setNull(i+1, Integer.MIN_VALUE); 
-			    } else {
-			    	preparedStmt.setObject(i+1, objects[i]);
-			    }
+					preparedStmt.setNull(i + 1, Integer.MIN_VALUE);
+				} else {
+					preparedStmt.setObject(i + 1, objects[i]);
+				}
 			}
 			logger.log.debug("Executing prepared statement -- " + sql);
 			retValue = preparedStmt.executeUpdate();
 			logger.log.debug("prepared statement completed and returned the -- " + retValue);
-			if (retValue == 0)
-			{
+			if (retValue == 0) {
 				retString = "SUCCESS";
-			}
-			else
-			{
+			} else {
 				retString = "SUCCESS: " + retValue + " rows affected";
 			}
 		}
-		
-		catch (Exception e)
-		{
+
+		catch (Exception e) {
 			logger.log.error("ERROR: " + e.getMessage());
 			retString = "ERROR: " + e.getMessage();
-		}
-		finally
-		{
-			try
-			{
+		} finally {
+			try {
 				con.close();
-			}
-			catch (SQLException e)
-			{
+			} catch (SQLException e) {
 			}
 		}
 
 		return retString;
 	}
 
-	public Node executeQuery(String sql)
-	{
+	public Node executeQuery(String sql) {
 		Statement stmt = null;
 		ResultSet rs = null;
 
 		Node result = null;
 		Document doc = null;
-		try
-		{
+		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			StringReader sr = new StringReader("<resultSet></resultSet>");
@@ -282,13 +227,11 @@ public class DatabaseHelper
 			rs = stmt.executeQuery(sql);
 			ResultSetMetaData rsmd = rs.getMetaData();
 
-			while (rs.next())
-			{
+			while (rs.next()) {
 				Node rowNode = doc.createElement("row");
 				doc.getElementsByTagName("resultSet").item(0).appendChild(rowNode);
 
-				for (int i = 1; i < rsmd.getColumnCount() + 1; i++)
-				{
+				for (int i = 1; i < rsmd.getColumnCount() + 1; i++) {
 					String column = rsmd.getColumnName(i);
 					Node columnNode = doc.createElement(column);
 					columnNode.setTextContent(rs.getString(rsmd.getColumnName(i)));
@@ -297,8 +240,7 @@ public class DatabaseHelper
 			}
 		}
 
-		catch (Exception e)
-		{
+		catch (Exception e) {
 			String error = e.getMessage();
 			error = error.replaceAll("&", "&amp;");
 			error = error.replaceAll("<", "&lt;");
@@ -306,15 +248,10 @@ public class DatabaseHelper
 			Node node = doc.createElement("error");
 			node.setTextContent(error);
 			doc.getElementsByTagName("resultSet").item(0).appendChild(node);
-		}
-		finally
-		{
-			try
-			{
+		} finally {
+			try {
 				con.close();
-			}
-			catch (Exception e)
-			{
+			} catch (Exception e) {
 			}
 		}
 
@@ -323,7 +260,59 @@ public class DatabaseHelper
 	}
 
 	// #endregion
+	public Node executeScript(String sourceFile) {
+		Node root = null;
+		Document doc = null;
+		try {
+			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db = dbf.newDocumentBuilder();
+			StringReader sr = new StringReader("<Lines></Lines>");
+			InputSource is = new InputSource(sr);
 
-	
+			doc = db.parse(is);
+			String line = null;
+			StringBuffer sb = new StringBuffer();
+
+			try (BufferedReader br = new BufferedReader(new FileReader(sourceFile))) {
+
+				while ((line = br.readLine()) != null) {
+					sb.append(line);
+				}
+				String[] inst = sb.toString().split(";");
+
+				for (int i = 0; i < inst.length; i++) {
+					// we ensure that there is no spaces before or after the request string
+					// in order to not execute empty statements
+					if (!inst[i].trim().equals("")) {
+						if (inst[i].toUpperCase().startsWith("SELECT")) {
+							root = query(inst[i]);
+						} else {
+							System.out.println(update(inst[i]));
+						}
+					}
+				}
+			} catch (Exception e) {
+				line = e.getMessage();
+				line = line.replaceAll("&", "&amp;");
+				line = line.replaceAll("<", "&lt;");
+				line = line.replaceAll(">", "&gt;");
+				Node node = doc.createElement("error");
+				node.setTextContent(line);
+				doc.getElementsByTagName("Lines").item(0).appendChild(node);
+			}
+		} catch (Exception e) {
+			logger.log.debug(e.getMessage());
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		// root = doc.getElementsByTagName("Lines").item(0);
+		return root;
+	}
 
 }
