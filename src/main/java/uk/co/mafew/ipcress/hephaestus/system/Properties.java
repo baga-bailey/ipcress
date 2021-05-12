@@ -23,15 +23,6 @@ import org.w3c.dom.Node;
 public class Properties {
 
 	public static void main(String[] args) {
-		Properties p = new Properties();
-
-		//System.out.println(Convert.elementToString(
-		//		(Element) p.directoryListing("\\\\UKFAVWLMOIDATA\\internal\\exceptions", ".*zip.*.xml$")));
-		
-		System.out.println(p.setLastModifiedTime("C:\\Users\\jbailey1\\Documents\\uranus\\files\\iDataBatch\\ValidityBU.csv", "2007-10-21 02:32:45", "yyyy-MM-dd HH:mm:ss"));
-		
-		//System.out.println(Convert.elementToString(
-			//			(Element)p.directoryListingVerbose("C:\\Users\\jbailey1\\Documents")));
 
 	}
 
