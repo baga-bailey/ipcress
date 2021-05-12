@@ -52,12 +52,6 @@ public class CmdHelper {
 			Runtime r = Runtime.getRuntime();
 			Process p = r.exec(command);
 			int code = 0;
-			if (waitFor) {
-				code = p.waitFor();
-				Node node = doc.createElement("returnCode");
-				node.setTextContent(Integer.toString(code));
-				doc.getElementsByTagName("cmdResult").item(0).appendChild(node);
-			}
 
 			in = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			errStream = new BufferedReader(new InputStreamReader(p.getErrorStream()));
@@ -80,6 +74,14 @@ public class CmdHelper {
 				outputLine = outputLine.replaceAll(">", "&gt;");
 				Node node = doc.createElement("error");
 				node.setTextContent(outputLine);
+				doc.getElementsByTagName("cmdResult").item(0).appendChild(node);
+			}
+			
+
+			if (waitFor) {
+				code = p.waitFor();
+				Node node = doc.createElement("returnCode");
+				node.setTextContent(Integer.toString(code));
 				doc.getElementsByTagName("cmdResult").item(0).appendChild(node);
 			}
 
