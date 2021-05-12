@@ -41,29 +41,10 @@ public class FileHelper
 {
 
 	Logger logger;
-
-	public static void main(String[] args)
-	{
-		FileHelper fh = new FileHelper();
-		/*System.out.println(Convert.elementToString((Element)
-				fh.extractFilesFromZip("C:\\Users\\jbailey1\\Desktop\\New folder\\test 1.zip",
-				"C:\\Users\\jbailey1\\Desktop\\New folder")));*/
-
-		
-		/* System.out.println(Convert.docToString((Document)
-		 fh.getInnerZipProperties(
-		 "\\\\ukfavwlmts03\\c$\\Decode, Analysis and Tech tools\\DecodeAutomation\\files\\decryptSaosFile\\processedFiles\\00179599_955063792_AUDITW6_plain.00179599-UKN-MR.zip"
-		 )));*/		 
-		
-		//fh.parseTextFile("C:\\Users\\jbailey1\\Documents\\uranus\\files\\system21\\workingDirectory\\51fe209b-58ed-4fe4-808f-51d3bce0d463\\AC1_SYS1_SL71_02.09.16_VERSION.txt",
-		//		".*", "UTF-16le");
-		
-		fh.appendToLine("C:\\Users\\jbailey1\\Documents\\uranus\\files\\system21\\workingDirectory\\271f1e3c-0ba2-4d04-905e-e25907356712\\AC1_SYS2_SL71_week1_02.09.16_UserNames.csv", 
-				",\"Status\"", "^\"UserId\",\"Username\".*", true, "UTF-16le");
-	}
+	
 	public FileHelper()
 	{
-		logger = new Logger(this.getClass().getName());
+			logger = new Logger(this.getClass().getName());
 	}
 
 	public boolean createDirectory(String dir)
@@ -411,6 +392,7 @@ public class FileHelper
 
 	public String zipDirectory(String zipFilename, String filename)
 	{
+		zipFilename = zipFilename.replaceAll("\\s", "%20");
 		String returnString = "";
 		try (FileSystem zipFileSystem = createZipFileSystem(zipFilename, true))
 		{
