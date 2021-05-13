@@ -12,12 +12,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class CsvToXslx
 {
 
-	public static void main(String[] args)
-	{
-		CsvToXslx ctx = new CsvToXslx();
-		ctx.csvToXLSX("C:\\Users\\jbailey1\\Desktop\\test.csv", "C:\\Users\\jbailey1\\Desktop\\test.xslx");
-	}
-
 	public void csvToXLSX(String csvFile, String xlsxFile)
 	{
 		BufferedReader br = null;

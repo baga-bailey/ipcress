@@ -24,13 +24,6 @@ public class ProcessReturnCode
 
 	private String RETURN_CODE_DOCUMENT = "";
 
-	public static void main(String[] args)
-	{
-		ProcessReturnCode prCode = new ProcessReturnCode();
-		prCode.RETURN_CODE_DOCUMENT = "C:\\Users\\jbailey1\\Documents\\uranus\\processes\\config\\returnCodes.xml";
-		prCode.run("1001", "101");
-	}
-
 	public ProcessReturnCode()
 	{
 		try

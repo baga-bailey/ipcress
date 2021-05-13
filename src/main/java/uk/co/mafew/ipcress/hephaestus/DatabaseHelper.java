@@ -25,18 +25,11 @@ import uk.co.mafew.ipcress.apollo.logging.*;
 public class DatabaseHelper
 {
 	// #region Testing
-	static String DATASOURCE_CONTEXT = "java:jboss/datasources/mySQL/idata";
-	static String DB_CONN_STRING = "jdbc:mysql://localhost/labos";
-	static String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
-	static String USER_NAME = "root";
-	static String PASSWORD = "admin";
-	
-	public static void main(String[] args)
-	{
-		DatabaseHelper dbHelper = new DatabaseHelper(DB_CONN_STRING,DRIVER_CLASS_NAME,USER_NAME,PASSWORD);
-		dbHelper.executeQuery("SELECT [audit_id] FROM [es].[es].[g_lmo_audit_customer_answer] question_id = 3 and audit_id = '00122587' ;");
-
-	}
+	static String DATASOURCE_CONTEXT = "";
+	static String DB_CONN_STRING = "";
+	static String DRIVER_CLASS_NAME = "";
+	static String USER_NAME = "";
+	static String PASSWORD = "";
 	// #endregion
 
 	Connection con;

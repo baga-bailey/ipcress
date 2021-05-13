@@ -22,10 +22,6 @@ public class ProcessConfig
 	Document configDoc;
 	HashMap<String, String> configMap;
 
-	public static void main(String[] args)
-	{
-	}
-
 	public ProcessConfig()
 	{
 		logger = new Logger(this.getClass().getName());

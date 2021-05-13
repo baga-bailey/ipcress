@@ -23,18 +23,6 @@ import uk.co.mafew.ipcress.apollo.format.*;
 public class XmlHelper
 {
 
-	public static void main(String[] args)
-	{
-		XmlHelper xHelper = new XmlHelper();
-		xHelper.transformFromAndToFile(
-				"C:\\Users\\jbailey1\\Documents\\Visual Studio 2013\\Projects\\iDataViewer\\iDataViewer\\00160998_merged.xml",
-				"C:\\Users\\jbailey1\\AppData\\Local\\Temp\\test.xml",
-				"c:\\users\\jbailey1\\documents\\visual studio 2013\\projects\\idataviewer\\idataviewer\\test.xslt",
-				"externalDoc",
-				"00155997_-445572409_UIID-984408448-W2K8R2-BAAN-DAY1.zip.xml");
-
-	}
-
 	public boolean saveDocToFile(Document doc, String outputDir, String filename)
 	{
 		try

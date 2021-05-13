@@ -43,37 +43,6 @@ public class ProcessMessage
 	String COMPLETED_PROCESS_DIRECTORY = "";
 	String USER_ENCRYPTION_KEY = "";
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		ProcessMessage pm = new ProcessMessage();
-		try
-		{
-			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-			DocumentBuilder db = dbf.newDocumentBuilder();
-			// Document doc = db.parse(is);
-			File f = new File(
-					"C:\\Documents and Settings\\BaileyJ\\My Documents\\eclipse\\workspace\\NewScheduler\\message.xml");
-			Document doc = db.parse(f);
-
-			pm.process(doc);
-		}
-		catch (ParserConfigurationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (SAXException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-	}
-
 	public ProcessMessage()
 	{
 		logger = new Logger(this.getClass().getName());

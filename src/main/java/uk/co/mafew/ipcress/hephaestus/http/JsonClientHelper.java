@@ -43,11 +43,6 @@ public class JsonClientHelper
 
 	}
 
-	// #region Main method for testing
-	public static void main(String args[])
-	{
-	}
-
 	// #endregion
 
 	// #region HTTP

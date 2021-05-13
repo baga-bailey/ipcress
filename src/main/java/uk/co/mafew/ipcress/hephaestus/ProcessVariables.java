@@ -31,10 +31,6 @@ public class ProcessVariables
 	Document configDoc;
 	HashMap<String, String> configMap;
 
-	public static void main(String[] args)
-	{
-	}
-
 	public ProcessVariables()
 	{
 		logger = new Logger(this.getClass().getName());

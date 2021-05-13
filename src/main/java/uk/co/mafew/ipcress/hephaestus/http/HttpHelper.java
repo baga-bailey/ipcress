@@ -37,14 +37,6 @@ public class HttpHelper
 	 */
 	/*******************************************************************************/
 
-	// #region Main method for testing
-	public static void main(String[] args)
-	{
-		HttpHelper helper = new HttpHelper();
-	}
-
-	// #endregion
-
 	// #region HTTP
 
 	// #region Simple Request

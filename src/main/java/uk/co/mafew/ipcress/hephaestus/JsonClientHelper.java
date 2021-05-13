@@ -20,11 +20,6 @@ public class JsonClientHelper {
 
 	}
 
-	public static void main(String args[])
-	{
-		JsonClientHelper test = new JsonClientHelper();
-	}
-
 	public String downloadJsonToFile(String urlString, String file)
 	{
 		BufferedWriter writer = null;
